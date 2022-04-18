@@ -16,7 +16,7 @@ pipeline {
         stage('build Docker Image'){
             steps{
                 script {
-                    sh 'docker build -t jbalialoui/eureka-server-1.0 .'
+                    sh 'docker build -t jbalialoui/eureka-server .'
 
                 }
                 
@@ -31,7 +31,7 @@ pipeline {
                         sh 'docker login -u jbalialoui -p ${dockerhubpwd}'
                     }
                     
-                    sh 'docker push jbalialoui/eureka-server-1.0'
+                    sh 'docker push jbalialoui/eureka-server'
 
                 }
             }
