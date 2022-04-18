@@ -1,4 +1,4 @@
-FROM openjdk
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 ARG APP_NAME="eureka-server"
 ARG APP_VERSION="0.0.1"
