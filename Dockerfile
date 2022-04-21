@@ -1,19 +1,7 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM openjdk:11-jre as builder
+WORKDIR application
+ARG ARTIFACT_NAME
+COPY ${ARTIFACT_NAME}.jar application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-COPY src ./src
-
-ARG APP_NAME="api-gateway"
-ARG APP_VERSION="0.0.1"
-ARG JAR_FILE="/build/libs/${APP_NAME}-${APP_VERSION}.jar"
-
-
-
-
-RUN ./mvnw install
-
-
-COPY ${JAR_FILE} app.jar
-RUN java -cp app.jar ApiGatewayApplication
-ENTRYPOINT ["java","-jar", "app.jar"]
