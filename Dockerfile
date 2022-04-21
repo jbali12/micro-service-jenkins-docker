@@ -1,6 +1,6 @@
 FROM alpine:3.2
 RUN apk --update add openjdk7-jre
 CMD ["/usr/bin/java", "-version"]
-COPY /target/my-app-1.0-SNAPSHOT.jar   /app.jar
+ADD ./target/notification-service.jar /app/
 ENTRYPOINT ["java","-jar", "app.jar"]
 
