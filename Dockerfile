@@ -1,8 +1,8 @@
 FROM alpine:3.2
-RUN apk --update add openjdk7-jre
+RUN apk --update add openjdk8-jre
 CMD ["/usr/bin/java", "-version"]
-ADD ./target/api-gateway.jar /app/
-RUN jar cmvf META-INF/MANIFEST.MF app.jar  ./target/api-gateway.jar
+ADD /my-app-1.0-SNAPSHOT.jar /app/
+RUN jar cmvf META-INF/MANIFEST.MF app.jar  /my-app-1.0-SNAPSHOT.jar
 
 ENTRYPOINT ["java","-jar", "app.jar"]
 
