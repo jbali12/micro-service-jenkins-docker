@@ -15,5 +15,5 @@ RUN ./mvnw install
 
 
 COPY ${JAR_FILE} app.jar
-RUN java -cp app.jar com.rainbowforest.apigateway
+RUN java -cp app.jar ApiGatewayApplication
 ENTRYPOINT ["java","-jar", "app.jar"]
