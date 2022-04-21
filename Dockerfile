@@ -12,5 +12,7 @@ ARG JAR_FILE="/build/libs/${APP_NAME}-${APP_VERSION}.jar"
 
 
 RUN ./mvnw install
+RUN java -cp app.jar com.rainbowforest.apigateway
+
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar", "app.jar"]
