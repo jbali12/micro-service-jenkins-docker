@@ -1,17 +1,11 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
-
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-COPY src ./src
-
-ARG APP_NAME="eureka-server"
-ARG APP_VERSION="0.0.1"
-ARG JAR_FILE="/build/libs/${APP_NAME}-${APP_VERSION}.jar"
+#Start with a base image containing Java runtime
+FROM openjdk:11-slim as build
 
 
 
+# Add the application's jar to the container
+COPY target/api-gateway-0.0.1-SNAPSHOT.jar api-gateway-0.0.1-SNAPSHOT.jar
 
-RUN ./mvnw install
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar", "app.jar"]
+#execute the application
+ENTRYPOINT ["java","-jar","/api-gateway-0.0.1-SNAPSHOT.jar"]
 
