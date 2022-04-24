@@ -7,7 +7,7 @@ ARG JAR_FILE="/build/libs/${APP_NAME}-${APP_VERSION}.jar"
 
 COPY ${JAR_FILE} app.jar
 
-workdir /app
+WORKDIR /app
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
