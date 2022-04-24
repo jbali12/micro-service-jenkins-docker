@@ -1,6 +1,8 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 
-
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+COPY src ./src
 
 ARG APP_NAME="api-gateway"
 ARG APP_VERSION="0.0.1"
