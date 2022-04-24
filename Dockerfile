@@ -1,13 +1,6 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 
-WORKDIR /app
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-COPY src ./src
-
-
-RUN ./mvnw install
 
 ARG APP_NAME="api-gateway"
 ARG APP_VERSION="0.0.1"
