@@ -4,7 +4,7 @@ EXPOSE 8900
 
 
 
-COPY target/*.jar /app
+COPY target/*.jar /app.jar
 
 
 ENTRYPOINT ["java","-jar", "app.jar"]
