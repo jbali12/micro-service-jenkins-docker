@@ -1,10 +1,8 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 
+EXPOSE 8900
 
-
-ARG APP_NAME="api-gateway"
-ARG APP_VERSION="0.0.1"
-ARG JAR_FILE="/build/libs/${APP_NAME}-${APP_VERSION}.jar"
+ARG JAR_FILE="/var/lib/jenkins/workspace/rvice-jenkins-docker_api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar"
 
 
 
