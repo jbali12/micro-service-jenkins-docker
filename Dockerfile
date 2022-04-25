@@ -4,10 +4,8 @@ EXPOSE 8900
 
 
 
+COPY target/*.jar /app
 
 
-
-
-COPY /var/lib/jenkins/workspace/rvice-jenkins-docker_api-gateway/target app.jar
 ENTRYPOINT ["java","-jar", "app.jar"]
 
